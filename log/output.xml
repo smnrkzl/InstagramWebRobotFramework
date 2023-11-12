@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.1.1 (Python 3.12.0 on win32)" generated="20231112 15:48:20.563" rpa="false" schemaversion="4">
+<suite id="s1" name="InstagramTests" source="D:\TrendyollRegisterTest\e2eInstagramRobot\Tests\InstagramTests.robot">
+<test id="s1-t1" name="Instagram'a geçersiz şifreyle giriş" line="19">
+<kw name="Instagram anasayfasına git" library="InstagramPage" type="SETUP">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${Datas.UrlInsta}</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20231112 15:48:20.963" level="INFO">Opening browser 'chrome' to base url 'https://www.instagram.com/'.</msg>
+<status status="PASS" starttime="20231112 15:48:20.962" endtime="20231112 15:48:24.869"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20231112 15:48:24.870" endtime="20231112 15:48:24.997"/>
+</kw>
+<kw name="Set Selenium Implicit Wait" library="SeleniumLibrary">
+<arg>10s</arg>
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<status status="PASS" starttime="20231112 15:48:24.997" endtime="20231112 15:48:24.999"/>
+</kw>
+<status status="PASS" starttime="20231112 15:48:20.961" endtime="20231112 15:48:24.999"/>
+</kw>
+<kw name="Geçersiz şifreyi gir" library="InstagramPage">
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${InsLocators.inputUsername}</arg>
+<arg>${Datas.Email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20231112 15:48:25.002" level="INFO">Typing text 'ilimitadosoftware' into text field 'css=input[name='username']'.</msg>
+<status status="PASS" starttime="20231112 15:48:25.000" endtime="20231112 15:48:25.510"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${InsLocators.inputPassword}</arg>
+<arg>${Datas.InvalidPassword}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20231112 15:48:25.512" level="INFO">Typing text 'yazilimyolunda' into text field 'css=input[name='password']'.</msg>
+<status status="PASS" starttime="20231112 15:48:25.511" endtime="20231112 15:48:25.724"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20231112 15:48:27.725" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20231112 15:48:25.724" endtime="20231112 15:48:27.725"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${InsLocators.btnGirisYap}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231112 15:48:27.726" level="INFO">Clicking element 'xpath=//button[@type='submit']'.</msg>
+<status status="PASS" starttime="20231112 15:48:27.725" endtime="20231112 15:48:27.820"/>
+</kw>
+<status status="PASS" starttime="20231112 15:48:24.999" endtime="20231112 15:48:27.820"/>
+</kw>
+<kw name="Hata mesajını dogrula" library="InstagramPage">
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${SifreHataMesaji}</var>
+<arg>${InsLocators.HataMesaji}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20231112 15:48:38.071" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-2.png"&gt;&lt;img src="selenium-screenshot-2.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20231112 15:48:38.071" level="FAIL">Element with locator 'css=._ab2z' not found.</msg>
+<status status="FAIL" starttime="20231112 15:48:27.820" endtime="20231112 15:48:38.075"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${SifreHataMesaji}</arg>
+<arg>${Datas.expectedHataMesajiYanlisSifre}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="NOT RUN" starttime="20231112 15:48:38.076" endtime="20231112 15:48:38.076"/>
+</kw>
+<status status="FAIL" starttime="20231112 15:48:27.820" endtime="20231112 15:48:38.076"/>
+</kw>
+<status status="FAIL" starttime="20231112 15:48:20.959" endtime="20231112 15:48:38.076">Element with locator 'css=._ab2z' not found.</status>
+</test>
+<status status="FAIL" starttime="20231112 15:48:20.566" endtime="20231112 15:48:38.077"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="InstagramTests">InstagramTests</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
